@@ -203,6 +203,7 @@ interface GigabitEthernet0/0/1
  description aaa
 #
 interface GigabitEthernet0/0/2
+ description aaa
  eth-trunk 4
 #
 interface GigabitEthernet0/0/3
