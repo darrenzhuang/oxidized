@@ -1,0 +1,313 @@
+# Huawei Versatile Routing Platform Software
+# VRP (R) software, Version 5.170 (S5735 V200R020C10SPC500)
+# Copyright (C) 2000-2020 HUAWEI TECH Co., Ltd.
+# 
+# DDR             Memory Size : 512   M bytes
+# FLASH Total     Memory Size : 512   M bytes
+# FLASH Available Memory Size : 253   M bytes
+# Pcb           Version   : VER.A
+# BootROM(1st)       Version   : 0000.0000
+# BootROM(2nd)       Version   : 0000.00d9
+# BootLoad      Version   : 0214.0000
+# CPLD          Version   : 0101 
+# Software      Version   : VRP (R) Software, Version 5.170 (V200R020C10SPC500)
+# FLASH         Version   : 0000.0000
+# S5735-L48T4X-A1's Device status:
+# Slot Sub  Type                   Online    Power    Register     Status   Role  
+# --------------------------------------------------------------------------------------
+# 0    -    S5735-L48T4X-A1        Present   PowerOn  Registered   Normal   Master
+!Software Version V200R020C10SPC500
+#
+sysname FYKJ-XM-A3F-O-SW-092
+#
+vlan batch 22 100 103 to 109 116 118 to 119 131 to 133 135 to 138 141 to 148 151 to 153 161 to 162
+vlan batch 254 1254 1808 1818 2626
+#
+authentication-profile name default_authen_profile
+authentication-profile name dot1x_authen_profile
+authentication-profile name dot1xmac_authen_profile
+authentication-profile name mac_authen_profile
+authentication-profile name multi_authen_profile
+authentication-profile name portal_authen_profile
+#
+telnet server-source all-interface
+#
+clock timezone BJ add 08:00:00
+#
+diffserv domain default
+#
+radius-server template default
+#
+pki realm default
+ certificate-check none
+#
+acl number 2001
+ rule 5 permit source 192.168.10.211 0
+ rule 6 deny
+#
+free-rule-template name default_free_rule
+#
+portal-access-profile name portal_access_profile
+#
+vlan 22
+ name NeiBu_Server
+vlan 103
+ name HuiYiShiXiTong
+vlan 104
+ name DaYinJi
+vlan 105
+ name XinXiFaBuXiTong
+vlan 106
+ name XiaoYuMiao
+vlan 107
+ name RenLiZiYuan
+vlan 108
+ name CaiWuBu
+vlan 109
+ name XingZhengBu
+vlan 116
+ name Wlan_XiaoYuMiao
+vlan 118
+ name Wlan_CaiWuBu
+vlan 119
+ name Wlan_XingZhengBu&RenLiZiYuan
+vlan 131
+ name PingTaiJiShu
+vlan 132
+ name ChanPin
+vlan 133
+ name Wlan_PingTaiJiShu&ChanPin
+vlan 135
+ name CeShi
+vlan 136
+ name Wlan_CeShi
+vlan 137
+ name MeiShuZhongXin
+vlan 138
+ name Wlan_MeiShuZhongXin
+vlan 141
+ name FeiYuYeYou
+vlan 142
+ name Wlan_FeiYuYeYou
+vlan 143
+ name Yidou
+vlan 144
+ name Wlan_Yidou
+vlan 145
+ name KeFuBu
+vlan 146
+ name Wlan_KeFuBu
+vlan 147
+ name ShengYinGongZuoShi
+vlan 148
+ name Wlan_ShengYinGongZuoShi
+vlan 151
+ name ZiZaiGongZuoShi
+vlan 152
+ name Wlan_ZiZaiGongZuoShi
+vlan 153
+ name XiaoYaoGongZuoShi
+vlan 161
+ name FeiYuShenXianDao
+vlan 162
+ name Wlan_FeiYuShenXianDao
+vlan 1254
+ name SW-MGMT
+vlan 1808
+ name FangKeYouXian
+vlan 1818
+ name Wlan_FangKeYouXian
+#
+aaa
+ authentication-scheme default
+  authentication-mode local
+ authentication-scheme radius
+  authentication-mode radius
+ authorization-scheme default
+  authorization-mode local
+ accounting-scheme default
+  accounting-mode none
+ domain default
+  authentication-scheme radius
+  accounting-scheme default
+  radius-server default
+ domain default_admin
+  authentication-scheme default
+  accounting-scheme default
+ local-user admin password irreversible-cipher $1c$VbrJHu8&>0$@'P$Cnv@807IQ2E_o$J)/r!g3hmg"O&A*M/W)Ia4$
+ local-user admin privilege level 15
+ local-user admin service-type telnet terminal ssh
+#
+interface Vlanif1
+#
+interface Vlanif1254
+ ip address 10.22.254.92 255.255.255.0
+#
+*interface MEth0/0/2
+#
+interface Eth-Trunk1
+ port link-type trunk
+ port trunk allow-pass vlan 2 to 4094
+ mode lacp
+#
+interface GigabitEthernet0/0/1
+ port link-type access
+ port default vlan 100
+#
+interface GigabitEthernet0/0/2
+#
+interface GigabitEthernet0/0/3
+#
+interface GigabitEthernet0/0/4
+ port link-type access
+ port default vlan 2626
+#
+interface GigabitEthernet0/0/5
+ port link-type trunk
+ port trunk allow-pass vlan 2 to 4094
+#
+interface GigabitEthernet0/0/6
+#
+interface GigabitEthernet0/0/7
+#
+interface GigabitEthernet0/0/8
+#
+interface GigabitEthernet0/0/9
+#
+interface GigabitEthernet0/0/10
+#
+interface GigabitEthernet0/0/11
+#
+interface GigabitEthernet0/0/12
+#
+interface GigabitEthernet0/0/13
+#
+interface GigabitEthernet0/0/14
+#
+interface GigabitEthernet0/0/15
+#
+interface GigabitEthernet0/0/16
+#
+interface GigabitEthernet0/0/17
+#
+interface GigabitEthernet0/0/18
+#
+interface GigabitEthernet0/0/19
+#
+interface GigabitEthernet0/0/20
+#
+interface GigabitEthernet0/0/21
+#
+interface GigabitEthernet0/0/22
+#
+interface GigabitEthernet0/0/23
+#
+interface GigabitEthernet0/0/24
+#
+interface GigabitEthernet0/0/25
+#
+interface GigabitEthernet0/0/26
+#
+interface GigabitEthernet0/0/27
+#
+interface GigabitEthernet0/0/28
+#
+interface GigabitEthernet0/0/29
+#
+interface GigabitEthernet0/0/30
+#
+interface GigabitEthernet0/0/31
+#
+interface GigabitEthernet0/0/32
+#
+interface GigabitEthernet0/0/33
+#
+interface GigabitEthernet0/0/34
+#
+interface GigabitEthernet0/0/35
+#
+interface GigabitEthernet0/0/36
+#
+interface GigabitEthernet0/0/37
+#
+interface GigabitEthernet0/0/38
+#
+interface GigabitEthernet0/0/39
+#
+interface GigabitEthernet0/0/40
+#
+interface GigabitEthernet0/0/41
+#
+interface GigabitEthernet0/0/42
+#
+interface GigabitEthernet0/0/43
+#
+interface GigabitEthernet0/0/44
+#
+interface GigabitEthernet0/0/45
+#
+interface GigabitEthernet0/0/46
+#
+interface GigabitEthernet0/0/47
+#
+interface GigabitEthernet0/0/48
+#
+interface XGigabitEthernet0/0/1
+ eth-trunk 1
+#
+interface XGigabitEthernet0/0/2
+ eth-trunk 1
+#
+interface XGigabitEthernet0/0/3
+#
+interface XGigabitEthernet0/0/4
+#
+interface NULL0
+#
+undo icmp name timestamp-request receive
+#
+ip route-static 0.0.0.0 0.0.0.0 10.22.254.1
+#
+snmp-agent
+snmp-agent local-engineid 800007DB03F09BB8D6BB00
+snmp-agent community write cipher %^%#>UA$=h6A/&dNOv"n\W9NK|$-)\FXjRw.#8Qr^K6S*2qP"oV_d6/t.YM4XxMS1kLzUiUZHR-n^CYa2s)J%^%# acl 2001
+snmp-agent sys-info version v2c
+undo snmp-agent sys-info version v3
+snmp-agent target-host inform address udp-domain 192.168.10.211 params securityname cipher %^%#-^22H,'<D2@:0&UgK+rFB2v>:rSX"&pV73R"5wO0%^%# v2c
+snmp-agent inform timeout 5
+snmp-agent inform resend-times 6
+snmp-agent inform pending 7
+snmp-agent protocol source-status all-interface
+undo snmp-agent protocol source-status ipv6 all-interface
+#
+stelnet server enable
+ssh server port 20278
+ssh user admin
+ssh user admin authentication-type password
+ssh user admin service-type all
+ssh client first-time enable
+ssh server-source all-interface
+ssh server cipher aes256_ctr aes128_ctr
+ssh server hmac sha2_256
+ssh server key-exchange dh_group16_sha512 dh_group15_sha512 dh_group14_sha256 dh_group_exchange_sha256
+ssh client cipher aes256_ctr aes128_ctr
+ssh client hmac sha2_256
+ssh client key-exchange dh_group16_sha512 dh_group15_sha512 dh_group14_sha256 dh_group_exchange_sha256
+ssh server dh-exchange min-len 2048
+#
+user-interface con 0
+ authentication-mode aaa
+user-interface vty 0 4
+ authentication-mode aaa
+ protocol inbound all
+user-interface vty 16 20
+ authentication-mode aaa
+ protocol inbound all
+#
+dot1x-access-profile name dot1x_access_profile
+#
+mac-access-profile name mac_access_profile
+#
+ops
+#
+return
