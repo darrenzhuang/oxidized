@@ -200,7 +200,6 @@ interface Eth-Trunk10
  mode lacp
 #
 interface GigabitEthernet0/0/1
- description aaa
 #
 interface GigabitEthernet0/0/2
  description aaa
