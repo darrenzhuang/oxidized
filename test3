@@ -21,7 +21,7 @@
 sysname FYKJ-XM-A3F-O-SW-094
 #
 vlan batch 10 22 100 103 to 110 116 118 to 119 131 to 133 135 to 138 141 to 148 151 to 154
-vlan batch 161 to 162 1254 1808 1818 2626
+vlan batch 161 to 162 254 1254 1808 1818 2626
 #
 authentication-profile name default_authen_profile
 authentication-profile name dot1x_authen_profile
